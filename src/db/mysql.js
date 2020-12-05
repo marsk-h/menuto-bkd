@@ -27,6 +27,11 @@ const db = (query, data) => {
     });
 };
 
+const login = (table, email, pass) => {
+    let query = `SELECT * FROM ${table} WHERE Email = '${email}' AND Password = '${pass}' AND Status = 1`;
+    return db(query);
+};
+
 const list = (table) => {
     let query = `SELECT * FROM ${table}`;
     return db(query);
@@ -34,6 +39,11 @@ const list = (table) => {
 
 const get = (table, field, id) => {
     let query = `SELECT * FROM ${table} WHERE ${field} = '${id}'`;
+    return db(query);
+};
+
+const check = (table, field, value) => {
+    let query = `SELECT * FROM ${table} WHERE ${field} = '${value}'`;
     return db(query);
 };
 
@@ -63,11 +73,13 @@ const custom = (table, condition) => {
 };
 
 module.exports = {
+    login,
     list,
     get,
     search,
     insert,
     update,
+    check,
     // remove,
     custom
 };
