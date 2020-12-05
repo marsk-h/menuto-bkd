@@ -1,6 +1,6 @@
 const TABLE = 'user';
 const ID_COL = 'ID';
-const SEARCH_COL = 'Email';
+const CHECK_COL = ["Email", "Phone"];
 
 module.exports = (injectedDB) => {
     let db = injectedDB;
@@ -20,10 +20,10 @@ module.exports = (injectedDB) => {
         return await db.search(TABLE, SEARCH_COL, value);
     };
 
-    const insert = async (body) => {
-        console.log('Request INSERT');
-        return db.insert(TABLE, body);
-    };
+    // const insert = async (body) => {
+    //     console.log('Request INSERT');
+    //     return db.insert(TABLE, body);
+    // };
 
     const update = async (body) => {
         console.log('Request UPDATE');
@@ -39,7 +39,7 @@ module.exports = (injectedDB) => {
         list,
         get,
         search,
-        insert,
+        // insert,
         update,
         // remove
     };

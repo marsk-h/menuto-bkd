@@ -28,17 +28,17 @@ const get = (req, res, next) => {
     }).catch(next);
 };
 
-const insert = (req, res, next) => {
-    controller
-    .insert(req.body)
-    .then((user) => {
-        try {
-            response.success(req, res, user, 201);
-        } catch (error) {
-            console.log(error);
-        }
-    }).catch(next);
-};
+// const insert = (req, res, next) => {
+//     controller
+//     .insert(req.body)
+//     .then((user) => {
+//         try {
+//             response.success(req, res, user, 201);
+//         } catch (error) {
+//             console.log(error);
+//         }
+//     }).catch(next);
+// };
 
 const search = (req, res, next) => {
     controller
@@ -78,7 +78,7 @@ const update = (req, res, next) => {
 
 router.get('/', list);
 router.get('/id/:id', get);
-router.post('/new', insert);
+// router.post('/new', insert);
 router.post('/search', search);
 router.put('/update', update);
 //router.delete('/delete/:id', remove);
